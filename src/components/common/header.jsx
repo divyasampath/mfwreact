@@ -42,13 +42,16 @@ class header extends Component {
         </div>
         <div className="col right-align">
           <div className="media-icons hoverable">
-            <a href="https://www.facebook.com/moment4women/">
+            <a href="https://www.facebook.com/moment4women/" target="_blank">
               <i className="fa fa-facebook hoverable" />
             </a>
-            <a href="https://twitter.com/moment4women">
+            <a href="https://twitter.com/moment4women" target="_blank">
               <i className="fa fa-twitter hoverable" />
             </a>
-            <a href="https://www.youtube.com/channel/UCmTO7a-vTd5CZTg7_n20xIQ">
+            <a
+              href="https://www.youtube.com/channel/UCmTO7a-vTd5CZTg7_n20xIQ"
+              target="_blank"
+            >
               <i className="fa fa-youtube hoverable" />
             </a>
           </div>
