@@ -23,15 +23,16 @@ class header extends Component {
           <button className="btn-floating pulse orange accent-3 headlines-pulse z-depth-1" />
         </div>
         <div className="col s7 news-feed">
-          <div className="slider">
-            <ul className="slides">
+          <div className="ticker-wrap">
+            <div className="ticker">
               {data.map(item => (
-                <li className="news-item fadein">
-                  <a href="#">{item.title}</a>
-                </li>
+                <div className="ticker-item">
+                  <a href="#" className="">
+                    <h6>{item.title}</h6>
+                  </a>
+                </div>
               ))}
-              <a href="#" />
-            </ul>
+            </div>
           </div>
         </div>
         <div className="col ">
@@ -44,7 +45,7 @@ class header extends Component {
             <a href="https://www.facebook.com/moment4women/">
               <i className="fa fa-facebook hoverable" />
             </a>
-            <a>
+            <a href="https://twitter.com/moment4women">
               <i className="fa fa-twitter hoverable" />
             </a>
             <a href="https://www.youtube.com/channel/UCmTO7a-vTd5CZTg7_n20xIQ">

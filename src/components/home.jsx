@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { getFeeds } from "../service/fakeFeedService";
 import Widget from "./widget";
 import M from "materialize-css/dist/js/materialize.min.js";
+import $ from "jquery";
 import News from "./news";
 import FeatureHeader from "./common/featureHeader";
 

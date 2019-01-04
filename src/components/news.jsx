@@ -13,26 +13,57 @@ class News extends Component {
   state = {
     feeds: getFeeds(),
     currentPage: 1,
-    pageSize: 3
+    pageSize: 3,
+    searchText: "",
+    tagSearch: ""
   };
   handlePage = page => {
     this.setState({ currentPage: page });
   };
+  handleSearch = searchText => {
+    this.setState({ searchText: searchText.toUpperCase() });
+  };
+  toggleTags() {
+    let tags = document.querySelectorAll(".chip");
+    for (let i = 0; i < tags.length; i++) {
+      tags[i].classList.remove("active");
+    }
+  }
+  handleTagClick = value => {
+    this.toggleTags();
+    value.classList.add("active");
+    this.setState({ tagSearch: value.textContent.toUpperCase() });
+  };
   componentDidMount() {
     let nav = document.querySelector(".newsBtn");
     nav.classList.add("active");
+    this.toggleTags();
   }
-  
+
   render() {
     const headlines = this.state.feeds[0].channel.item;
     const tags = this.state.feeds[0].channel.tags;
     const { match } = this.props;
-    const { currentPage, pageSize } = this.state;
+    const { currentPage, pageSize, searchText, tagSearch } = this.state;
 
-    const filteredArticles =
+    let filteredArticles =
       match === undefined
         ? headlines
         : headlines.filter(item => item.category == match.params.category);
+    //search manually//
+    if (searchText != "")
+      filteredArticles = headlines.filter(
+        item =>
+          item.description.toUpperCase().includes(searchText) ||
+          item.title.toUpperCase().includes(searchText)
+      );
+    //on click of tags//
+    if (tagSearch != "")
+      filteredArticles = headlines.filter(
+        item =>
+          item.description.toUpperCase().includes(tagSearch) ||
+          item.title.toUpperCase().includes(tagSearch)
+      );
     const news = Paginate(filteredArticles, currentPage, pageSize);
 
     return (
@@ -52,13 +83,17 @@ class News extends Component {
         </div>
         <div className="col l4 m12 s12">
           <div className="row">
-            <RecentPost data={headlines} />
+            <RecentPost data={headlines.slice(0, 5)} />
           </div>
           <div className="row">
-            <Search />
+            <Search onSearch={this.handleSearch} />
           </div>
           <div className="row">
-            <TagsCloud data={tags} />
+            <TagsCloud
+              data={tags}
+              onTagClick={this.handleTagClick}
+              onTagClear={this.toggleTags}
+            />
           </div>
         </div>
       </div>

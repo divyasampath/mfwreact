@@ -1,6 +1,6 @@
-import React from "react";
+import React, { Component } from "react";
 
-const Search = () => {
+const Search = ({ onSearch }) => {
   return (
     <div className="row">
       <div className="col s10  offset-s3">
@@ -11,6 +11,7 @@ const Search = () => {
               type="text"
               id="autocomplete-input"
               className="autocomplete"
+              onChange={e => onSearch(e.target.value)}
             />
             <label for="autocomplete-input">Search</label>
           </div>
