@@ -23,7 +23,7 @@ class home extends Component {
     const headlines = this.state.feeds[0].channel.item;
     return (
       <div>
-        <Widget data={headlines.slice(0, 3)} />
+        <Widget data={headlines} />
         <FeatureHeader />
         <News />
       </div>

@@ -1,9 +1,12 @@
 import React, { Component } from "react";
+import Newsticker from "react-newsticker";
 
 class header extends Component {
   state = {};
 
-  componentDidMount() {}
+  handleClick(id) {
+    console.log(id);
+  }
 
   getFullDate() {
     let options = {
@@ -22,17 +25,12 @@ class header extends Component {
         <div className="col hide-on-down">
           <button className="btn-floating pulse orange accent-3 headlines-pulse z-depth-1" />
         </div>
-        <div className="col s7 news-feed">
+        <div className="col m10 l7 news-feed">
           <div className="ticker-wrap">
-            <div className="ticker">
-              {data.map(item => (
-                <div className="ticker-item">
-                  <a href="#" className="">
-                    <h6>{item.title}</h6>
-                  </a>
-                </div>
-              ))}
-            </div>
+            <Newsticker
+              news={data.map(item => item.title)}
+              onClick={e => this.handleClick(e)}
+            />
           </div>
         </div>
         <div className="col ">

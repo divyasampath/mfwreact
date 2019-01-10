@@ -1,9 +1,14 @@
 /*customize logo background*/
+body {
+  background: #fafafa;
+}
 .logo-wrapper {
-  background: url(./assets/img/logo.jpg) no-repeat;
-  background-clip: text;
+  text-transform: uppercase;
+  background: linear-gradient(to right, #ffc107 35%, #ad1457 50%, #4a148c 100%);
   -webkit-background-clip: text;
-  color: transparent;
+  -webkit-text-fill-color: transparent;
+  font-size: 2.5rem;
+  font-family: "Poppins", sans-serif;
 }
 
 .headlines-pulse {
@@ -13,7 +18,7 @@
 }
 
 .header-wrapper {
-  background: #212121;
+  background: #311b92;
   max-height: 45px;
   color: white;
   overflow: hidden;
@@ -21,6 +26,12 @@
 .news-feed {
   margin: 10px 0px;
   padding-bottom: 10px;
+}
+.iYEUQw {
+  background: #311b92 !important;
+  color: white !important;
+  margin-top: -17px;
+  cursor: pointer;
 }
 .news-item {
   background: #212121;
@@ -44,7 +55,7 @@
   color: black;
 }
 .home-icon {
-  background-color: tomato;
+  background-color: #ffc107;
   height: 65px;
 }
 
@@ -83,7 +94,7 @@
   min-width: 160px;
 }
 #nav-mobile .active {
-  background: #ffcdd2;
+  background: #ffecb3;
 }
 /* widget article */
 .bg-1 {
@@ -94,6 +105,19 @@
   min-height: 400px !important;
 }
 
+.card-custom {
+  margin-bottom: 30px;
+  background: linear-gradient(70deg, #f9fbe7, white);
+  box-shadow: 5px 5px 5px 0px rgba(242, 234, 242, 1);
+  border-radius: 2%;
+}
+.card-video iframe {
+  margin: 10px;
+}
+.description {
+  font-style: bold;
+  margin: 10px;
+}
 /*slider*/
 .news-feed {
 }
@@ -102,22 +126,9 @@
 }
 .slider-caption {
   margin: 20px;
-}
-.slider-title {
-  font-family: "Lato";
-  font-size: 28px;
-  line-height: 26px;
-  color: #37474f;
-  font-weight: bold;
-  transform-origin: 50% 50% 0px;
-  transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-  opacity: 1;
-  visibility: visible;
-  top: 15%;
   position: absolute;
-  text-transform: capitalize;
-  word-wrap: break-word;
-  width: 500px;
+  top: 60%;
+  left: 30%;
 }
 
 .article-title {
@@ -130,25 +141,12 @@
 }
 
 .category {
-  position: absolute;
-  top: 70%;
   padding: 10px;
   background: #212121;
   color: white;
   font-size: 1rem;
   font-weight: 100;
   line-height: 14px;
-}
-.desc {
-  position: absolute;
-  top: 32%;
-  color: #880e4f;
-  font-size: 1.2rem;
-  font-weight: bold;
-  line-height: 20px;
-  word-wrap: break-word;
-  width: 600px;
-  margin-top: 35px;
 }
 
 .article {
@@ -207,11 +205,23 @@ span.badge {
   background-color: #df2176;
   color: white;
 }
+.page-footer {
+  background-color: #4a148c !important;
+}
+.show-on-mobile {
+  display: none;
+}
 /* responsive design*/
 
 @media (min-width: 768px) {
   .container {
     min-width: 90%;
+  }
+}
+
+@media (max-width: 600px) {
+  nav {
+    display: none !important;
   }
 }
 

@@ -6,7 +6,7 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import "materialize-css/dist/css/materialize.min.css";
 import "font-awesome/css/font-awesome.css";
-import $ from "jquery";
+
 
 ReactDOM.render(
   <BrowserRouter>

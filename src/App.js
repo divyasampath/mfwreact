@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import $ from "jquery/dist/jquery";
 import "./App.css";
 import Home from "./components/home";
 import { Route, Switch } from "react-router-dom";

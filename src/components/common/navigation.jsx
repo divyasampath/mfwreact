@@ -5,13 +5,11 @@ import News from "../news";
 
 class Navigation extends Component {
   state = {};
-  handleDropDown() {
-   
-  }
+  handleDropDown() {}
   render() {
     const { data } = this.props;
     return (
-      <nav className="grey lighten-4">
+      <nav className="grey lighten-4 nav-bar">
         <div className="nav-wrapper left">
           <ul id="nav-mobile" className="nav-list right hide-on-med-and-down">
             <li className="hoverable home-icon">

@@ -6,13 +6,13 @@ const card = ({ data, pageSize, onArticleClick }) => {
     <div className="section">
       <div class="row">
         {data.map(feed => (
-          <div class="col s12 m7 l12">
+          <div class="col s12 m7 l12 card-custom">
             <div class="card">
-              <div className="col s12 m12 l6">
+              <div className="col s12 m12 l6 card-video">
                 <iframe
                   title={feed.title}
                   width="100%"
-                  height="400px"
+                  height="300px"
                   src={feed.src}
                 />
               </div>
@@ -23,7 +23,11 @@ const card = ({ data, pageSize, onArticleClick }) => {
                       {feed.title}
                     </Link>
                   </span>
-                  <p black-text>{feed.description}</p>
+                  <span className="blue-grey-text">
+                    <i className="fa fa-clock-o" />
+                    {feed.pubDate}
+                  </span>
+                  <p description>{feed.description}</p>
                 </div>
               </div>
             </div>
