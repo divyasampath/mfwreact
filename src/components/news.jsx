@@ -5,7 +5,7 @@ import TagsCloud from "./utils/tagsCloud";
 import RecentPost from "./RecentPost";
 import Paginate from "./utils/paginate";
 import Pagination from "./utils/pagination";
-import { getFeeds } from "../service/fakeFeedService";
+import { getFeeds } from "../service/news-api-service";
 import NewsDetails from "./newsDetails";
 import { Redirect } from "react-router-dom";
 
@@ -41,8 +41,8 @@ class News extends Component {
   }
 
   render() {
-    const headlines = this.state.feeds[0].channel.item;
-    const tags = this.state.feeds[0].channel.tags;
+    const headlines = this.state.feeds[0].articles;
+    const tags = this.state.feeds[0].articles;
     const { match } = this.props;
     const { currentPage, pageSize, searchText, tagSearch } = this.state;
 

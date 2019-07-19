@@ -6,7 +6,7 @@ import { Route, Switch } from "react-router-dom";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Layout from "./components/common/layout";
-import { getFeeds } from "./service/fakeFeedService";
+import { getFeeds } from "./service/news-api-service";
 import M from "materialize-css/dist/js/materialize.min.js";
 import Redirect from "react-router-dom/Redirect";
 import NewsDetails from "./components/newsDetails";
@@ -14,18 +14,20 @@ import News from "./components/news";
 
 class App extends Component {
   state = {
-    feeds: getFeeds()
+    feeds: []
   };
   componentDidMount() {
-    var elems = document.querySelectorAll(".slider");
-    var instances = M.Slider.init(elems, true);
+    getFeeds().then(data => {
+      this.setState({ feeds: data });
+    });
   }
   render() {
-    const headlines = this.state.feeds[0].channel.item;
-    const categories = this.state.feeds[0].channel.categories;
+    const feedData = this.state.feeds;
+
     return (
       <div className="container">
-        <Layout headlines={headlines} categories={categories} />
+        <Layout headlines={feedData} />
+
         <Switch>
           <Route path="/news/:category/:id" component={NewsDetails} />
           <Route path="/news/:category" component={News} />
@@ -37,8 +39,8 @@ class App extends Component {
           <Redirect to="/not-found" />
         </Switch>
         <footer className="page-footer">
-          <div class="footer-copyright">
-            <div class="container">© 2018 Copyright MomentForWomen.tv</div>
+          <div className="footer-copyright">
+            <div className="container">© 2019 Copyright NEWS ROOM</div>
           </div>
         </footer>
       </div>

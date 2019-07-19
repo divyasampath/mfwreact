@@ -18,8 +18,8 @@ class header extends Component {
     let today = new Date();
     return today.toLocaleDateString("en-US", options); // Saturday, September 17, 2016
   }
+
   render() {
-    const { data } = this.props;
     return (
       <div className="row header-wrapper">
         <div className="col hide-on-down">
@@ -28,7 +28,7 @@ class header extends Component {
         <div className="col m10 l7 news-feed">
           <div className="ticker-wrap">
             <Newsticker
-              news={data.map(item => item.title)}
+              news={this.props.data.articles.map(item => item.title)}
               onClick={e => this.handleClick(e)}
             />
           </div>

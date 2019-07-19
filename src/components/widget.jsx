@@ -4,36 +4,60 @@ import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 
-class widget extends Component {
-  state = {};
-  componentDidMount() {}
+const widget = ({ data }) => {
+  if (!data) {
+    return <div>Loading...</div>;
+  }
 
-  render() {
-    return (
-      <div className="row">
-        <div className="col s12 m12 l12">
-          <OwlCarousel
-            className="owl-theme section"
-            loop
-            margin={4}
-            items={2}
-            autoplay={true}
-            video={true}
-            autoplayHoverPause={true}
-            autoWidth={true}
-          >
-            {this.props.data.map(item => (
-              <div className="row">
-                <div key={item.pubDate} className="item col s12">
-                  <iframe title={item.title} src={item.src} className="" />
-                </div>
-              </div>
-            ))}
-          </OwlCarousel>
+  return (
+    <div className="row">
+      <div class="col s12 m7 l4">
+        <div class="card horizontal card-customize">
+          <div class="card-image">
+            <img src={data[0].urlToImage} />
+          </div>
+          <div class="card-stacked">
+            <div class="card-content">
+              <p>
+                I am a very simple card. I am good at containing small bits of
+                information.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-    );
-  }
-}
+      <div class="col s12 m7 l4">
+        <div class="card horizontal card-customize">
+          <div class="card-image">
+            <img src={data[1].urlToImage} />
+          </div>
+          <div class="card-stacked">
+            <div class="card-content">
+              <p>
+                I am a very simple card. I am good at containing small bits of
+                information.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m7 l4">
+        <div class="card horizontal card-customize">
+          <div class="card-image">
+            <img src={data[2].urlToImage} />
+          </div>
+          <div class="card-stacked">
+            <div class="card-content">
+              <p>
+                I am a very simple card. I am good at containing small bits of
+                information.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default widget;

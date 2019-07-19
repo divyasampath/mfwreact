@@ -9,12 +9,7 @@ const card = ({ data, pageSize, onArticleClick }) => {
           <div class="col s12 m7 l12 card-custom">
             <div class="card">
               <div className="col s12 m12 l6 card-video">
-                <iframe
-                  title={feed.title}
-                  width="100%"
-                  height="300px"
-                  src={feed.src}
-                />
+                <img src={feed.urlToImage} />
               </div>
               <div className="col s12 m12 l6">
                 <div class="card-content">

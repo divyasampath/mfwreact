@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getFeeds } from "../service/fakeFeedService";
+import { getFeeds } from "../service/news-api-service";
 
 class Details extends Component {
   state = {
@@ -12,7 +12,7 @@ class Details extends Component {
   render() {
     const { match } = this.props;
 
-    const content = this.state.feeds[0].channel.item.filter(
+    const content = this.state.feeds[0].articles.filter(
       i => i.id.toString() == match.params.id
     );
 

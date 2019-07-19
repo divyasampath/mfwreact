@@ -1,31 +1,28 @@
 import React, { Component } from "react";
-import { getFeeds } from "../service/fakeFeedService";
+import { getNewsFrom } from "../service/news-api-service";
 import Widget from "./widget";
 import M from "materialize-css/dist/js/materialize.min.js";
-import $ from "jquery";
 import News from "./news";
 import FeatureHeader from "./common/featureHeader";
+import BusinessNews from "./categories/business";
 
 class home extends Component {
   state = {
-    feeds: getFeeds(),
+    newsList: [],
     pageSize: 2
   };
-  componentDidMount() {
-    var elems = document.querySelectorAll(".slider");
-    var instances = M.Slider.init(elems, true);
-
-    let nav = document.querySelector(".newsBtn");
-    nav.classList.add("active");
+  componentWillMount() {
+    getNewsFrom("world").then(data => {
+      this.setState({ newsList: data });
+    });
   }
   render() {
-    const data = this.state.feeds[0].channel;
-    const headlines = this.state.feeds[0].channel.item;
+    const headlines = this.state.newsList.articles;
     return (
       <div>
         <Widget data={headlines} />
         <FeatureHeader />
-        <News />
+        <BusinessNews data={headlines} />
       </div>
     );
   }

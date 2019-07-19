@@ -1,6 +1,9 @@
 /*customize logo background*/
 body {
-  background: #fafafa;
+  background: white;
+}
+img {
+  width: 100%;
 }
 .logo-wrapper {
   text-transform: uppercase;
@@ -51,6 +54,17 @@ body {
 }
 
 /*navbar*/
+
+nav {
+  margin-bottom: 10px;
+  border-bottom: 3px solid #311b92;
+  border-top: 1px solid #311b92;
+  box-shadow: none !important;
+}
+.nav-list {
+  width: 56%;
+  margin: auto;
+}
 .nav-list * {
   color: black;
 }
@@ -210,6 +224,10 @@ span.badge {
 }
 .show-on-mobile {
   display: none;
+}
+
+.card-customize {
+  box-shadow: none !important;
 }
 /* responsive design*/
 
