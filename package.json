@@ -14,7 +14,7 @@
     "react-dom": "^16.7.0",
     "react-newsticker": "^1.0.3",
     "react-owl-carousel": "^2.3.1",
-    "react-router-dom": "^4.3.1",
+    "react-router-dom": "^7.5.2",
     "react-scripts": "2.1.2"
   },
   "scripts": {
